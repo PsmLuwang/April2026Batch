@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Display Properties</title>
+
+  <style>
+    .none {
+      display: none;
+    }
+
+    .block {
+      /* display: block; */ /* Default property of h1 */
+      background-color: bisque;
+    }
+
+    .inline {
+      /* display: inline; */ /* Default property of button */
+      background-color: orange;
+    }
+
+    .flex {
+      background-color: green;
+      /* height: 200px; */
+      display: flex;
+      gap: 5px;
+      /* flex-direction: column; */
+
+      /* justify-content: center; */
+      /* justify-content: start; */
+      /* justify-content: end; */
+      /* justify-content: space-around; */
+      /* justify-content: space-between; */
+      justify-content: space-evenly;
+
+      /* align-items: start; */
+      align-items: center;
+      /* align-items: end; */
+    }
+    .flex_box {
+      background-color: red;
+      height: 50px;
+      width: 50px;
+    }
+
+    .grid {
+      background-color: red;
+      gap: 8px;
+      padding: 8px;
+
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+    }
+    .grid_box {
+      background-color: green;
+    }
+    .box1 {
+      grid-column: span 2;
+    }
+    .box5 {
+      grid-row: span 2;
+    }
+    .box6 {
+      grid-column: span 2;
+    }
+
+    /* practice */
+    .practice_parent_box {
+      background-color: gray;
+      height: 200px;
+      display: flex;
+      flex-direction: column;
+      /* justify-content: center;
+      align-items: center; */
+
+      /* justify-content: center;
+      align-items: end; */
+
+      justify-content: end;
+      align-items: start;
+
+    }
+    .practice_child_box {
+      background-color:brown;
+      height: 70px;
+      width: 70px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Diplay Properties</h1>
+
+  <!-- 1. None -->
+  <h1 class="none">None</h1>
+
+  <!-- 2. Block -->
+  <h1 class="block">Block</h1>
+  <h1 class="block">Block</h1>
+  
+  <!-- 3. Inline -->
+  <button class="inline">Inline</button>
+  <button class="inline">Inline</button>
+
+  <!-- 4. Flex -->
+  <div class="flex">
+    <h1 class="flex_box">1</h1>
+    <h1 class="flex_box">2</h1>
+    <h1 class="flex_box">3</h1>
+    <h1 class="flex_box">4</h1>
+  </div>
+
+  <!-- 5. Grid -->
+  <div class="grid">
+    <h1 class="grid_box box1">1</h1>
+    <h1 class="grid_box">2</h1>
+    <h1 class="grid_box">3</h1>
+    <h1 class="grid_box">4</h1>
+    <h1 class="grid_box box5">5</h1>
+    <h1 class="grid_box box6">6</h1>
+  </div>
+
+  <br />
+  <!-- practice -->
+  <div class="practice_parent_box">
+    <h1 class="practice_child_box">Box</h1>
+  </div>
+
+</body>
+</html>
