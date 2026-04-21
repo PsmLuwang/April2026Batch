@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transform</title>
+
+  <style>
+    body {
+      display: grid;
+      margin-top: 80px;
+      place-content: center;
+    }
+    .parent1 {
+      /* background-color: rgba(255, 0, 0, 0.464); */
+      height: 400px;
+      width: 400px;
+      padding: 40px;
+      box-sizing: border-box;
+
+      position: relative;
+    }
+    .parent2 {
+      background-color: rgb(73, 172, 73);
+      height: 320px;
+      width: 320px;
+
+      position: relative;
+    }
+
+    .box {
+      background-color: rgba(0, 0, 255, 0.469);
+      height: 100px;
+      width: 100px;
+      display: grid;
+      place-content: center;
+      color: white;
+
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      /* transform: translate(-50px, -20px); (X,Y) */
+    }
+  </style>
+</head>
+<body>
+
+  <div class="parent1">
+    <div class="parent2">
+      
+      <div class="box">Box</div>
+
+    </div>
+  </div>
+
+</body>
+</html>
