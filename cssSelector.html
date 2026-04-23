@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Selector</title>
+
+  <style>
+    /* 1. Universal Selector */
+    * {
+      /* color: red; */
+    }
+    /* 2. Type Selector */
+    h1 {
+      /* color: green; */
+    }
+    /* 3. Class Selector */
+    .testClass {
+      /* color: blue; */
+    }
+    /* 4. ID Selector */
+    #testId {
+      /* color: red; */
+    }
+
+
+    /* 5. Descendant Selector */
+    .parent h1 {
+      /* color: red; */
+    }
+
+    /* 6. Child Selector */
+    .parent > h1 {
+      /* color: red; */
+    }
+    /* 7. Adjacent Sibling Selector */
+    .child1 + h1 {
+      /* color: red; */
+    }
+    /* 8. General Sibling Selector */
+    .child1 ~ h1 {
+      /* color: red; */
+    }
+
+    .parent > h1 + div > h1 {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <h1>CSS Selector</h1>
+  
+  <div class="parent">
+    <h1 class="child1">Test H1</h1>
+    <h1>Test H1</h1>
+    <h1>Test H1</h1>
+
+    <div>
+      <h1>Test H1 1</h1>
+      <h1>Test H1 1</h1>
+    </div>
+
+    <div>
+      <h1>Test H1</h1>
+      <h1>Test H1</h1>
+
+      <div>
+        <h1>Test H1</h1>
+        <h1>Test H1</h1>
+      </div>
+
+    </div>
+
+  </div>
+
+</body>
+</html>
