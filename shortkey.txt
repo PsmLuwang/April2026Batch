@@ -1,2 +1,0 @@
-comment : ctrl + /
-line-copy : shift + alt + arrow down
