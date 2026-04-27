@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Place Item Vs Place Content</title>
+
+  <style>
+    .parent {
+      background-color: red;
+      height: 400px;
+      display: grid;
+
+      place-items: center;
+      /* align-items: center;
+      justify-items: center; */
+
+      /* place-content: center; */
+      /* align-content: center;
+      justify-content: center; */
+
+    }
+    button {
+      height: 40px;
+      width: 40px;
+      display: grid;
+      place-content: center;
+    }
+    button > img {
+      height: 24px;
+      width: 24px;
+      object-fit: cover;
+    }
+    img {
+      height: 32px;
+    }
+  </style>
+</head>
+<body>
+  <div class="parent">
+    <button>
+      <img src="https://cdn-icons-png.flaticon.com/128/281/281764.png" alt="google">
+    </button>
+    <button>
+      <img src="https://cdn-icons-png.flaticon.com/128/281/281764.png" alt="google">
+    </button>
+    <button>
+      <img src="https://cdn-icons-png.flaticon.com/128/281/281764.png" alt="google">
+    </button>
+    <button>
+      <img src="https://cdn-icons-png.flaticon.com/128/281/281764.png" alt="google">
+    </button>
+  </div>
+
+  <img src="https://cdn-icons-gif.flaticon.com/19016/19016286.gif" alt="">
+  <img src="https://cdn-icons-png.flaticon.com/128/281/281764.png" alt="google">
+</body>
+</html>
