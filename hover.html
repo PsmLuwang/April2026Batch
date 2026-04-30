@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <!-- perspective(1000px) rotateZ(90deg) -->
+
+  <style>
+    .hoverMe {
+      background-color: red;
+      transition: all 0.5s;
+    }
+
+    .hoverMe:hover {
+      background-color: blue;
+      /* text-align: end; */
+    }
+
+    .focusMe {
+      background-color: red;
+    }
+    .focusMe:focus {
+      background-color: green;
+    }
+    .activeMe {
+      background-color: red;
+    }
+    .activeMe:active {
+      background-color: green;
+    }
+  </style>
+</head>
+<body>
+  
+  <button class="hoverMe">
+    Hover me
+  </button>
+
+  <button class="focusMe">
+    focus me
+  </button>
+  <button class="activeMe">
+    active me
+  </button>
+</body>
+</html>
