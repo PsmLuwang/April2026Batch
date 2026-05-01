@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Card</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <style>
+    /* Replace .element with your class name, or use 'body' for the whole page */
+    .hide-scroll-bar {
+      /* For Firefox */
+      scrollbar-width: none;
+      
+      /* For Internet Explorer and Edge */
+      -ms-overflow-style: none;
+    }
+
+    /* For Chrome, Safari, and Opera */
+    .hide-scroll-bar::-webkit-scrollbar {
+      display: none;
+    }
+  </style>
+</head>
+<body class="bg-gray-50">
+  <h1 class="text-gray-800 font-bold text-3xl text-center my-10">Product Card</h1>
+
+  <section class="flex justify-center">
+
+    <div class="flex gap-5 overflow-x-scroll hide-scroll-bar p-5">
+      <!-- card 1 -->
+      <div class="min-w-64 w-64 rounded-xl overflow-hidden shadow-lg bg-white">
+        <img 
+          class="w-full aspect-[4/3] object-cover"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGk87B6EEP4GDDcQIJpw5CSntMv5bQwfgYxw&s" 
+          alt="iPhone 16"
+        />
+
+        <div class="p-5">
+          <h1 class="font-semibold">iPhone 16</h1>
+          <p class="text-[0.8rem] text-justify text-gray-600">Lorem ipsum dolor tets kdch oidh sit amet consectetur adipisicing elit. Unde ratione placeat qui tempore? Deserunt harum sunt rem.</p>
+          
+          <div class="flex justify-between items-center mt-5">
+            <h1 class="font-semibold text-lg">₹69,999</h1>
+            <button class="bg-yellow-400 px-4 text-sm h-8 rounded-md">Buy now</button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- card 2 -->
+      <div class="min-w-64 w-64 rounded-xl overflow-hidden shadow-lg bg-white">
+        <img 
+          class="w-full aspect-[4/3] object-cover"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGk87B6EEP4GDDcQIJpw5CSntMv5bQwfgYxw&s" 
+          alt="iPhone 16"
+        />
+
+        <div class="p-5">
+          <h1 class="font-semibold">iPhone 16</h1>
+          <p class="text-[0.8rem] text-justify text-gray-600">Lorem ipsum dolor tets kdch oidh sit amet consectetur adipisicing elit. Unde ratione placeat qui tempore? Deserunt harum sunt rem.</p>
+          
+          <div class="flex justify-between items-center mt-5">
+            <h1 class="font-semibold text-lg">₹69,999</h1>
+            <button class="bg-yellow-400 px-4 text-sm h-8 rounded-md">Buy now</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- card 3 -->
+      <div class="min-w-64 w-64 rounded-xl overflow-hidden shadow-lg bg-white">
+        <img 
+          class="w-full aspect-[4/3] object-cover"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGk87B6EEP4GDDcQIJpw5CSntMv5bQwfgYxw&s" 
+          alt="iPhone 16"
+        />
+
+        <div class="p-5">
+          <h1 class="font-semibold">iPhone 16</h1>
+          <p class="text-[0.8rem] text-justify text-gray-600">Lorem ipsum dolor tets kdch oidh sit amet consectetur adipisicing elit. Unde ratione placeat qui tempore? Deserunt harum sunt rem.</p>
+          
+          <div class="flex justify-between items-center mt-5">
+            <h1 class="font-semibold text-lg">₹69,999</h1>
+            <button class="bg-yellow-400 px-4 text-sm h-8 rounded-md">Buy now</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  
+</body>
+</html>
