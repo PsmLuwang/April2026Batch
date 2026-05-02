@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+  <h1 
+    class="
+      font-bold text-center text-3xl
+    text-red-400 max-lg:text-yellow-500 max-md:text-green-400 max-sm:text-blue-400 
+    "
+  >
+    Hello Responsive
+  </h1>
+
+  <div 
+    id="container" 
+    class="
+      p-5 bg-green-400 grid gap-5
+      grid-cols-8 max-md:grid-cols-4 max-sm:grid-cols-2 max-[25rem]:grid-cols-1
+    "
+  >
+    
+  </div>
+
+
+  <button class="bg-white m-5 p-5 shadow-[10px_10px_20px_red] border-4 border-green-400"> 
+    text
+  </button>
+
+
+  <script>
+    const container = document.getElementById("container");
+    for (let i = 0; i < 16; i++) {
+      container.innerHTML += `
+        <button class="bg-red-500 text-white p-5">
+          Button ${i+1}
+        </button>
+      `;
+    }
+  </script>
+</body>
+</html>
