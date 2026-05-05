@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Expenses Tracker</title>
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
   <style>
     /* Chrome, Safari, Edge, Opera */
     input::-webkit-outer-spin-button,
@@ -54,6 +55,17 @@
         </div>
 
         <div class="flex flex-col">
+          <label for="particular" class="text-[0.8rem] text-gray-600 font-semibold">Particular</label>
+          <input 
+            id="particular"
+            name="particular"
+            class="border border-gray-300 rounded-sm h-10 px-3"
+            placeholder="Particular"
+            type="text" 
+          />
+        </div>
+
+        <div class="flex flex-col">
           <label for="remark" class="text-[0.8rem] text-gray-600 font-semibold">Remark</label>
           <input 
             id="remark"
@@ -86,6 +98,40 @@
       </form>
     </div>
   </header>
+
+  <section>
+    <div id="transactionContainer" class="w-280 max-w-[calc(100%-40px)] mx-auto py-5 space-y-3">
+
+      <h1 class="text-lg font-semibold text-gray-800">Transactions</h1>
+
+      <!-- Render Transactions here -->
+
+    </div>
+  </section>
+
+
+  <script>
+    const transactionContainer = document.getElementById("transactionContainer");
+    for (let i = 0; i < 10; i++) {
+      transactionContainer.innerHTML += `
+        <div class="bg-white p-4 rounded-md border border-gray-200 flex gap-3 shadow-md cursor-pointer hover:bg-gray-50/50 hover:shadow-lg hover:translate-x-2 transition-all duration-300">
+
+          <div class="flex gap-3 flex-1 items-center">
+            <div class="bg-gray-500 text-white h-10 w-10 rounded-sm grid place-content-center">
+              <i class="fa-solid fa-cart-arrow-down"></i>
+            </div>
+    
+            <div class="flex-1">
+              <h1 class="text-lg font-semibold text-gray-800">Cashback</h1>
+              <p class="text-[0.8rem] text-gray-600">12th Jan 2026 at 11:35am</p>
+            </div>
+          </div>
+
+          <h1 class="text-lg font-semibold text-green-600">+ ₹249</h1>
+        </div>
+      `;
+    }
+  </script>
 
 </body>
 </html>
