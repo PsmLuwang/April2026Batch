@@ -22,8 +22,22 @@
 
 </head>
 <body>
-  <nav class="h-16 mb-5 bg-gray-100">
+  <nav class="h-16 mb-5 bg-gray-100 flex justify-between items-center px-5">
+    <a href="#" class="text-lg font-semibold">Expenses Tracker</a>
 
+    <div class="flex items-center max-md:gap-2 gap-5 text-[0.9rem]">
+      <a href="#" class="max-md:hidden">Page 1</a>
+      <a href="#" class="max-md:hidden">Page 2</a>
+      <a href="#" class="max-md:hidden">Page 3</a>
+      <a href="#" class="max-md:hidden">Page 4</a>
+      <a href="#" class="bg-gray-500 h-8 w-8 grid place-content-center rounded-full text-white font-semibold">
+        M
+      </a>
+
+      <button class="md:hidden cursor-pointer">
+        <i class="fa-solid fa-ellipsis-vertical"></i>
+      </button>
+    </div>
   </nav>
   
   <header>
@@ -114,7 +128,10 @@
     const transactionContainer = document.getElementById("transactionContainer");
     for (let i = 0; i < 10; i++) {
       transactionContainer.innerHTML += `
-        <div class="bg-white p-4 rounded-md border border-gray-200 flex gap-3 shadow-md cursor-pointer hover:bg-gray-50/50 hover:shadow-lg hover:translate-x-2 transition-all duration-300">
+        <div class="
+          bg-white p-4 rounded-md border border-gray-200 flex gap-3 shadow-md cursor-pointer 
+          hover:bg-gray-50/50 hover:shadow-lg hover:translate-x-2 transition-all duration-300
+        ">
 
           <div class="flex gap-3 flex-1 items-center">
             <div class="bg-gray-500 text-white h-10 w-10 rounded-sm grid place-content-center">
