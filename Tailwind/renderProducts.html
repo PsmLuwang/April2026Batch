@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+  
+  <section id="container" class="max-w-full w-300 mx-auto p-5 grid gap-3 grid-cols-4 max-lg:grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1">
+    <!-- render card here -->
+  </section>
+
+
+  <script>
+    const container = document.getElementById("container");
+    for (let i = 0; i < 30; i++) {
+      container.innerHTML += `
+        <div class="bg-slate-100 border border-slate-300 text-slate-800 font-semibold rounded-lg px-5 py-20 text-center hover:-translate-y-1 hover:shadow-lg duration-300">
+          <h1>This is Card</h1>
+        </div>
+      `;
+    }
+  </script>
+</body>
+</html>
