@@ -33,7 +33,7 @@ function calc(action, num1, num2) {
 
 // const output = calc("add", 10, 20);
 // const sum = calc("add", 10, 20) + calc("multiply", 10, 20)
-console.log(calc("add", 10, 20));
+// console.log(calc("add", 10, 20));
 
 
 
@@ -41,5 +41,52 @@ console.log(calc("add", 10, 20));
 
 
 
+
+
+
+// function test(a, b) {
+
+//   const sum = a + b;
+//   console.log("line 50", sum);
+
+//   return sum;
+// }
+
+
+// const result = test(5, 6);
+
+// console.log("line 57", result);
+
+// const arr = [
+//   {
+//     name: "test",
+//     id: 1
+//   },
+//   {
+//     name: "test",
+//     id: 2
+//   },
+//   {
+//     name: "test",
+//     id: 3
+//   },
+// ]
+
+
+// function refresh() {
+
+//   const container = document.getElementById("container");
+  
+//   container.innerHTML = ``;
+  
+//   for (let i = 0; i < arr.length; i++) {
+//     container.innerHTML += `
+//       <h1>Hello ${arr[i].name} ${arr[i].id}</h1>
+//     `;
+//   }
+
+// }
+
+// refresh();
 
 

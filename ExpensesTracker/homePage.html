@@ -42,7 +42,7 @@
   
   <header>
     <div class="bg-white rounded-lg border border-gray-200 shadow-lg w-280 max-w-[calc(100%-40px)] mx-auto p-5">
-      <form class="space-y-3">
+      <form onsubmit="newTransaction(event)" class="space-y-3">
 
         <div class="flex justify-end max-sm:flex-col items-center max-sm:items-end gap-3">
           <select 
@@ -125,8 +125,28 @@
 
 
   <script>
+    const transactions = [
+      {
+        id: "1",
+        particular: "Cashback",
+        type: "credit",
+        amount: 249,
+        remark: "test",
+        catagory: "shopping",
+        createdAt: "12th Jan 2026 at 11:35am"
+      },
+      {
+        id: "2",
+        particular: "Veg",
+        type: "debit",
+        amount: 450,
+        remark: "test",
+        catagory: "Grocery",
+        createdAt: "24th Jan 2026 at 11:05am"
+      }
+    ]
     const transactionContainer = document.getElementById("transactionContainer");
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < transactions.length; i++) {
       transactionContainer.innerHTML += `
         <div class="
           bg-white p-4 rounded-md border border-gray-200 flex gap-3 shadow-md cursor-pointer 
@@ -139,14 +159,26 @@
             </div>
     
             <div class="flex-1">
-              <h1 class="text-lg font-semibold text-gray-800">Cashback</h1>
-              <p class="text-[0.8rem] text-gray-600">12th Jan 2026 at 11:35am</p>
+              <h1 class="text-lg font-semibold text-gray-800">${transactions[i].particular}</h1>
+              <p class="text-[0.8rem] text-gray-600">${transactions[i].createdAt}</p>
             </div>
           </div>
 
-          <h1 class="text-lg font-semibold text-green-600">+ ₹249</h1>
+          <h1 class="text-lg font-semibold ${transactions[i].type == "credit" ? "text-green-600" : " text-red-500"}">
+            ${transactions[i].type == "credit" ? "+" : "-"} ₹${transactions[i].amount}
+          </h1>
         </div>
       `;
+    }
+
+
+    function newTransaction(e) {
+      e.preventDefault()
+      const data = e.target;
+
+      console.log(data.amount.value);
+      console.dir(e)
+      
     }
   </script>
 
