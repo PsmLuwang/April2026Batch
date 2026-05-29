@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Call Back</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+
+  <div class="grid w-sm mx-auto mt-20 gap-4">
+    <input 
+      class="border border-gray-300 p-4"
+      id="a"
+      name="a"
+      type="number" 
+      placeholder="Enter the first number"
+    />
+    <input 
+      class="border border-gray-300 p-4"
+      id="b"
+      name="b"
+      type="number" 
+      placeholder="Enter the second number"
+    />
+
+    <div class="grid grid-cols-3 gap-3">
+      <button onclick="calc(add)" class="hover:bg-blue-400 p-3 hover:text-white border border-gray-300">Add</button>
+      <button onclick="calc(sub)" class="hover:bg-blue-400 p-3 hover:text-white border border-gray-300">Sub</button>
+      <button onclick="calc(multiply)" class="hover:bg-blue-400 p-3 hover:text-white border border-gray-300">Multiply</button>
+    </div>
+  </div>
+
+  <h1 id="display" class="w-sm mx-auto font-semibold text-xl mt-5 text-gray-800">Result = 30</h1>
+
+
+  <script>
+    function calc(action) {
+      const a = document.getElementById("a");
+      const b = document.getElementById("b");
+      const display = document.getElementById("display")
+
+      const result = action(parseFloat(a.value), parseFloat(b.value));
+
+      display.innerText = `Result = ${result}`;
+    }
+
+    function add(a, b) {
+      return a + b
+    }
+
+    function sub(a, b) {
+      return a - b
+    }
+
+    function multiply(a, b) {
+      return a * b
+    }
+  </script>
+</body>
+</html>

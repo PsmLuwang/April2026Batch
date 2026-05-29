@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nav Bar</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+</head>
+<body>
+
+  <nav class="bg-gray-300 h-16 flex justify-between items-center px-5">
+    <h1 id="companyName" class="font-bold text-xl">COMPANY</h1>
+
+    <div class="sm:flex gap-5 hidden">
+      <a href="#">Home</a>
+      <a href="#">Product</a>
+      <a href="#">Service</a>
+      <a href="#">Contact</a>
+    </div>
+
+    <button onclick="asideToggle()" class="sm:hidden">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <aside id="aside" class="fixed p-5 space-y-5 bg-gray-200 h-full w-64 top-0 right-0 translate-x-[100%] transition-all duration-300 ease-in-out">
+      <button onclick="asideToggle()">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      
+      <nav class="grid">
+        <a href="#" class="hover:bg-gray-300 p-3 rounded-md">Home</a>
+        <a href="#" class="hover:bg-gray-300 p-3 rounded-md">Product</a>
+        <a href="#" class="hover:bg-gray-300 p-3 rounded-md">Service</a>
+        <a href="#" class="hover:bg-gray-300 p-3 rounded-md">Contact</a>
+      </nav>
+    </aside>
+
+  </nav>
+  
+
+  <section class="grid grid-cols-3 gap-3 place-items-center mt-20">
+    <div id="redBox" class="h-20 w-20 bg-gray-200 grid place-content-center">Red</div>
+    <div id="greenBox" class="h-20 w-20 bg-gray-200 grid place-content-center">Green</div>
+    <div id="blueBox" class="h-20 w-20 bg-gray-200 grid place-content-center">Blue</div>
+  </section>
+
+  <section class="grid grid-cols-3 gap-3 place-items-center mt-20">
+    <button onclick="changeBg('redBox', 'bg-red-400')" class="h-10 w-20 bg-red-400">Red</button>
+    <button onclick="changeBg('greenBox', 'bg-green-400')" class="h-10 w-20 bg-green-400">Green</button>
+    <button onclick="changeBg('blueBox', 'bg-blue-400')" class="h-10 w-20 bg-blue-400">Blue</button>
+  </section>
+
+  <script>
+
+    let lastActiveBox;
+
+    function changeBg(box, bgColor) {
+
+      // reset last active box color 
+      if (lastActiveBox) {
+        const selectedBox = document.getElementById(lastActiveBox.box);
+        selectedBox.classList.replace(lastActiveBox.bgColor, "bg-gray-200");
+      }
+
+      // update last active box 
+      lastActiveBox = {
+        box, // box: box
+        bgColor
+      };
+
+      // update color of the current box
+      const selectedBox = document.getElementById(box);
+      selectedBox.classList.replace("bg-gray-200", bgColor)
+    }
+
+
+    function asideToggle() {
+      const aside = document.getElementById("aside");
+      aside.classList.toggle("translate-x-[100%]");
+      // aside.style.background = "yellow";
+    }
+
+    
+  </script>
+</body>
+</html>
