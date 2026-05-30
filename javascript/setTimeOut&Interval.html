@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>setTimeOut and setInterval</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+  <h1 class="text-3xl p-5">setTimeout & setInterval</h1>
+
+  <div id="display">
+    
+  </div>
+
+  <div id="messages">
+    
+  </div>
+
+  <script>
+
+    const display = document.getElementById("display");
+    let lap = 0;
+    let count = 10;
+    display.innerHTML = `
+      <div class="size-16 mx-auto my-5 bg-green-500 grid place-content-center rounded-full text-white font-semibold text-2xl">
+        ${count}
+      </div>
+    `;
+    
+    const timeInterval = setInterval(() => {
+      count--;
+
+      display.innerHTML = `
+        <div class="${count <= 3 ? "bg-red-500" : "bg-green-500"} size-16 mx-auto my-5 grid place-content-center rounded-full text-white font-semibold text-2xl">
+          ${count}
+        </div>
+      `;
+      
+      if (count == 0) {
+        lap++;
+        messages.innerHTML = `
+          <h1 class="text-center text-3xl ${lap == 3 ? "text-red-500" : ""}">
+            Lap ${lap} is completed
+          </h1>
+        `;
+        count = 10 + 1;
+      }
+
+      if (lap == 3) {
+        const messages = document.getElementById("messages");
+        messages.innerHTML += `
+          <h1 class="text-center text-3xl animate-ping mt-5">Time's Up</h1>
+        `;
+
+        clearInterval(timeInterval);
+      }
+    }, 200);
+
+
+    // setTimeout(action, time)
+    // console.log("started");
+    
+    // setTimeout(() => {
+    //   console.log("run");
+    // }, 2000);
+
+    // console.log("ended");
+
+
+
+    // console.log("started");
+
+    // const interval = setInterval(() => {
+    //   console.log("run");
+    // }, 1000);
+
+    // setTimeout(() => {
+    //   clearInterval(interval);
+    // }, 10 * 1000)
+
+    // console.log("ended");
+    // console.log(date.toString()); // Sat May 30 2026 19:37:44 GMT+0530 (India Standard Time)
+
+
+    // setInterval(() => {
+    //   // console.log("run");
+      
+    //   const date = new Date();
+    //   console.log(date.toLocaleTimeString()); 
+    // }, 1000);
+    
+
+    // DOM
+    // const display = document.getElementById("display");
+
+    // setInterval(() => {
+    //   const date = new Date();
+    //   display.innerText = `${date.toLocaleTimeString()}`;
+
+    // }, 1000);
+
+  </script>
+</body>
+</html>
