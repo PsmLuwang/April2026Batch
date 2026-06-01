@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Array methods</h1>
+
+  <div id="display"></div>
+
+  <script>
+    const nums = [1, 2, 3, 4, 5];
+    
+    // const output = nums.reduce((acc, curr) => {
+    //   const sum = acc + curr;
+    //   return sum
+    // }, 0);
+    
+    // console.log(output);
+
+    // {totalCredit: 420, totalDebit: 200}
+    const transactions = [
+      {amount: 100, type: "credit"},
+      {amount: 150, type: "debit"},
+      {amount: 200, type: "credit"},
+      {amount: 120, type: "credit"},
+      {amount: 50, type: "debit"},
+    ]
+    
+    // acc = {totalCredit: 420, totalDebit: 200}
+    const output = transactions.reduce((acc, cur) => {
+      
+      if (cur.type == "credit") {
+        acc.totalCredit += cur.amount;
+        
+      } else if (cur.type == "debit") {
+        acc.totalDebit += cur.amount;
+        
+      }
+
+      return acc
+    }, {totalCredit: 0, totalDebit: 0})
+    console.log(output);
+    
+
+
+    // [2, 3, 4, 5, 6] 
+    // const output = nums.map(num => num+1)
+    
+    // nums.forEach((num) => {
+    //   const result = num + 1
+    //   console.log(result);
+    // })
+
+    // [2, 4]
+    // const output = nums.filter(num => num%2 == 0)
+    
+    // 4
+    // const output = nums.find(num => num > 3);
+
+    // 2
+    // const output = nums.findIndex(num => num == 3);
+
+    // true
+    // const output = nums.some(num => num%2 == 0)
+
+    // true
+    // const output = nums.every(num => num > 0);
+
+    // acc = 15
+    // curr = 
+
+    // 15
+    // const output = nums.reduce((acc, curr) => {
+    //   const sum = acc + curr;
+    //   return sum
+    // }, 0);
+
+    // true
+    // const output = nums.includes(3);
+
+    // [2, 3, 4]
+    // const output = nums.slice(1, 4);
+
+    // [1, 2, 3, 10, 20, 50]
+    // const output = nums.splice(3, 2, 10, 20, 50)
+
+
+
+    // const students = [
+    //   {
+    //     id: 1,
+    //     name: "Max"
+    //   },
+    //   {
+    //     id: 2,
+    //     name: "Tom"
+    //   },
+    //   {
+    //     id: 3,
+    //     name: "John"
+    //   },
+    // ]
+
+    // const display = document.getElementById("display");
+    // students.forEach(student => {
+    //   display.innerHTML += `
+    //     <h1>${student.id} - ${student.name}</h1>
+    //   `;
+    // })
+  </script>
+</body>
+</html>
