@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+
+<body class="text-gray-700 font-[Poppins]">
+  
+  <h1 class="text-center p-5 text-3xl font-semibold">GET Method</h1>
+
+  <section id="display" class="grid place-items-center gap-3 p-5">
+    
+
+  </section>
+
+  <script>
+
+
+    // data = {
+    //   success: true,
+    //   message: "All students data",
+    //   students: [
+    //     {
+    //       "id": 1,
+    //       "name": "John",
+    //       "standard": "5",
+    //       "section": "A",
+    //       "roll": 25,
+    //       "gender": "male",
+    //       "phone": 1234567890,
+    //       "email": "john@gmail.com",
+    //       "parent": "Anderson",
+    //       "address": "Canchipur"
+    //     },
+    //     {
+    //       "id": 1,
+    //       "name": "John",
+    //       "standard": "5",
+    //       "section": "A",
+    //       "roll": 25,
+    //       "gender": "male",
+    //       "phone": 1234567890,
+    //       "email": "john@gmail.com",
+    //       "parent": "Anderson",
+    //       "address": "Canchipur"
+    //     }
+    //   ]
+    // }
+    async function getStudents() {
+      try {
+
+        // API Fetch (Students Data)
+        const response = await fetch("http://localhost:5000/getStudents");
+        const data = await response.json();
+        
+        // Student Data
+        const students = data.students;
+      
+        // DOM
+        const display = document.getElementById("display");
+        students.forEach(student => {
+          display.innerHTML += `
+            <div 
+              class="border border-gray-300 bg-linear-to-tr from-violet-50 via-white to-white shadow-md shadow-gray-200 p-5 
+              rounded-md w-sm max-w-sm space-y-4 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer"
+            >
+              <div class="flex gap-3 items-center">
+                <div class="bg-linear-to-tr from-violet-800 to-violet-400 size-10 text-lg text-white font-semibold grid place-content-center rounded-full">
+                  ${student.name[0].toUpperCase()}
+                </div>
+                <div>
+                  <h1 class="font-semibold">${student.name}</h1>
+                  <p class="text-[0.8rem] font-semibold text-gray-500">
+                    <span class="bg-violet-100 p-0.5 text-violet-700 text-[0.8rem] font-semibold">${student.standard}/${student.section} - ${student.roll}</span>
+                    ${student.gender.charAt(0).toUpperCase() + student.gender.slice(1)}
+                  </p>
+                  
+                </div>
+              </div>
+
+              <div class="grid grid-cols-2 max-sm:grid-cols-1 gap-3">
+                <h1 class="font-semibold">Parent : ${student.parent}</h1>
+
+                <div class="grid gap-1">
+                  <h1 class="text-sm flex items-center gap-2">
+                    <i class="fa-solid fa-phone"></i>
+                    +91-${student.phone}
+                  </h1>
+                  <h1 class="text-sm flex items-center gap-2">
+                    <i class="fa-solid fa-envelope"></i>
+                    ${student.email}
+                  </h1>
+                  <h1 class="text-sm flex items-center gap-2">
+                    <i class="fa-solid fa-location-dot"></i>
+                    ${student.address}
+                  </h1>
+                </div>
+              </div>
+            </div>
+          `;
+        })
+
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    getStudents();
+  </script>
+</body>
+</html>
+
+<!-- https://github.com/PsmLuwang/April2026Batch.git -->

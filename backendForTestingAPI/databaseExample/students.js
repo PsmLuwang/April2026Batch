@@ -1,0 +1,122 @@
+export const students = [
+  {
+    id: 1,
+    name: "John",
+    standard: "5",
+    section: "A",
+    roll: 25,
+    gender: "male",
+    phone: 1234567890,
+    email: "john@gmail.com",
+    parent: "Anderson",
+    address: "Canchipur"
+  },
+  {
+    id: 2,
+    name: "Smith",
+    standard: "5",
+    section: "A",
+    roll: 26,
+    gender: "male",
+    phone: 1234567890,
+    email: "smith@gmail.com",
+    parent: "Johnson",
+    address: "Mumbai"
+  },
+  {
+    id: 3,
+    name: "Emily",
+    standard: "5",
+    section: "A",
+    roll: 27,
+    gender: "female",
+    phone: 1234567890,
+    email: "emily@gmail.com",
+    parent: "Williams",
+    address: "Delhi"
+  },
+  {
+    id: 4,
+    name: "Michael",
+    standard: "5",
+    section: "A",
+    roll: 28,
+    gender: "male",
+    phone: 1234567890,
+    email: "michael@gmail.com",
+    parent: "Brown",
+    address: "Chennai"
+  },
+  {
+    id: 5,
+    name: "Sarah",
+    standard: "5",
+    section: "A",
+    roll: 29,
+    gender: "female",
+    phone: 1234567890,
+    email: "sarah@gmail.com",
+    parent: "Davis",
+    address: "Bangalore"
+  },
+  {
+    id: 6,
+    name: "David",
+    standard: "5",
+    section: "A",
+    roll: 30,
+    gender: "male",
+    phone: 1234567890,
+    email: "david@gmail.com",
+    parent: "Miller",
+    address: "Hyderabad"
+  },
+  {
+    id: 7,
+    name: "Lisa",
+    standard: "5",
+    section: "A",
+    roll: 31,
+    gender: "female",
+    phone: 1234567890,
+    email: "lisa@gmail.com",
+    parent: "Wilson",
+    address: "Pune"
+  },
+  {
+    id: 8,
+    name: "James",
+    standard: "5",
+    section: "A",
+    roll: 32,
+    gender: "male",
+    phone: 1234567890,
+    email: "james@gmail.com",
+    parent: "Taylor",
+    address: "Kolkata"
+  },
+  {
+    id: 9,
+    name: "Olivia",
+    standard: "5",
+    section: "A",
+    roll: 33,
+    gender: "female",
+    phone: 1234567890,
+    email: "olivia@gmail.com",
+    parent: "Anderson",
+    address: "Canchipur"
+  },
+  {
+    id: 10,
+    name: "Daniel",
+    standard: "5",
+    section: "A",
+    roll: 34,
+    gender: "male",
+    phone: 1234567890,
+    email: "daniel@gmail.com",
+    parent: "Martinez",
+    address: "Seattle"
+  }
+]
