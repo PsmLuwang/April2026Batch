@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<body class="text-gray-700 font-[Poppins]">
+  
+  <form onsubmit="newStudent(event)" class="p-5 space-y-3">
+    <div class="max-w-sm flex flex-col">
+      <label for="name">Name</label>
+      <input 
+        id="name"
+        name="name"
+        placeholder="Name"
+        type="text" 
+        class="border border-gray-300 p-4 "
+      />
+    </div>
+    <div class="max-w-sm flex flex-col">
+      <label for="name">Email</label>
+      <input 
+        id="email"
+        name="email"
+        placeholder="Email"
+        type="email" 
+        class="border border-gray-300 p-4 "
+      />
+    </div>
+
+    <button type="submit" class="bg-blue-400 max-w-sm w-full h-14 text-white">
+      New Student
+    </button>
+  </form>
+ 
+
+  <section id="display" class="p-5 space-y-3">
+    <!-- render students here -->
+  </section>
+
+  <script>
+
+    // main 
+    async function newStudent(e) {
+      try {
+        e.preventDefault(); // prevent reload
+
+        // collect student data from input
+        const student = {
+          name: e.target.name.value,
+          email: e.target.email.value
+        }
+
+        // send student data to backend 
+        const response = await sendToBackend(student);
+
+        // display the responded student
+        displayStudent(response.name, response.email, response.id);
+
+      } catch (error) {
+        
+      }
+    }
+
+
+    // send student data to backend 
+    async function sendToBackend(student) {
+      try {
+
+        const response = await fetch(`http://localhost:5000/newStudent`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(student)
+        });
+  
+        const data = await response.json();
+        return data.student;
+        
+      } catch (error) {
+        console.log(error);
+        
+      }
+    }
+
+
+    // display the responded student
+    function displayStudent(name, email, id) {
+      const display = document.getElementById("display");
+      display.innerHTML = `
+        <div class="border border-gray-300 p-4 max-w-sm">
+          <h1>${name} (${id})</h1>
+          <p class="text-sm italic text-gray-500">${email}</p>
+        </div>
+      `;
+    }
+
+
+
+  </script>
+</body>
+</html>
