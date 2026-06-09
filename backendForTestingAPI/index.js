@@ -37,8 +37,7 @@ app.post("/newStudent", (req, res) => {
   try {
     const student = req.body;
     
-    console.log(student);
-    
+    students.unshift(student)
     
     res.status(201).json({
       success: true,
