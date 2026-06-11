@@ -1,12 +1,13 @@
 import React from 'react'
 import NavBar from '../components/NavBar'
+import Header from '../components/Header'
 
 const ContactPage = () => {
   return (
     <div>
       <NavBar />
 
-      <h1 className='font-semibold text-gray-700 text-3xl text-center my-5'>ContactPage</h1>
+      <Header headerText="Contact Info"  />
       
     </div>
   )
