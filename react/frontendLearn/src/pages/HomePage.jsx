@@ -1,24 +1,41 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import NavBar from '../components/NavBar'
 import Header from '../components/Header'
+import ProfileCard from '../components/ProfileCard';
 
 const HomePage = () => {
+  const [user, setUser] = useState();
+
+  useEffect(() => {
+    const getUserById = async () => {
+      try {
+        const response = await fetch(`https://api.freeapi.app/api/v1/public/randomusers/4`);
+        const data = await response.json();
+  
+        setUser(data.data)
+  
+      } catch (error) {
+        
+      }
+    }
+
+    getUserById();
+
+  }, [])
+
+
+
   return (
     <div>
       <NavBar />
       
       <Header headerText="Online React Class" />
 
+
       <section>
-        <div className='p-2 border border-gray-300 max-w-80'> 
-          <img 
-            className=''
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbjAasJS3uicXhIQacdJC1JJh_-qChXyXWtA&s" 
-            alt="" 
-          />
-          <h1>Product Name</h1>
-          <p>₹999.99</p>
-        </div>
+        {user && <ProfileCard user={user} />}
+        
+
       </section>
     </div>
   )
