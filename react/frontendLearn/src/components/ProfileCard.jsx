@@ -2,7 +2,7 @@ import React from 'react'
 
 const ProfileCard = ({ user }) => {
   return (
-    <div className='p-2 border border-gray-300 max-w-80 flex gap-3'> 
+    <div className='p-2 border border-gray-300 w-80 flex gap-3'> 
       <img 
         className=''
         src={user.picture.large} 
