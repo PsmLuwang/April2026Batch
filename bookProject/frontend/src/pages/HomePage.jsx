@@ -1,8 +1,31 @@
 import React from 'react'
 import NavBar from '../components/NavBar'
 import { Link } from 'react-router-dom'
-import { Truck } from 'lucide-react'
+import { Truck, ChartNoAxesColumn, Tags } from 'lucide-react'
+
 import Footer from '../components/Footer'
+
+const services = [
+  {
+    id: 1,
+    name: "Online Booking",
+    description: "You can easily book your favorite books online with our user-friendly platform. Browse through our extensive collection, select the books you want, and complete your purchase in just a few clicks. Enjoy the convenience of shopping from the comfort of your home.",
+    icon: ChartNoAxesColumn
+  },
+  {
+    id: 2,
+    name: "Fast Delivery",
+    description: "We provide fast and reliable delivery services to get your books to you quickly and safely. Our efficient logistics network ensures that your orders are processed and shipped in a timely manner.",
+    icon: Truck
+  },
+  {
+    id: 3,
+    name: "24/7 Support",
+    description: "Our dedicated support team is available around the clock to assist you with any questions or concerns you may have. We are committed to providing you with the best possible service and ensuring your satisfaction.",
+    icon: Tags
+  }
+]
+
 
 const HomePage = () => {
   return (
@@ -38,17 +61,19 @@ const HomePage = () => {
         <h1 className='text-3xl text-green-700 font-semibold text-center'>Our Services</h1>
         
         <div className='grid grid-cols-3 max-md:grid-cols-1 gap-4'>
-          {[1,1,1].map(service => (
-            <div className='border border-gray-300 p-5 space-y-3'>
+          {services.map(service => (
+            <div key={service.id} className='border border-gray-300 p-5 space-y-3'>
               <div className='flex gap-4'>
                 <div className='bg-green-700 h-10 w-10 grid place-content-center text-white/90'>
-                  <Truck />
+                  <service.icon />
                 </div>
 
-                <h1 className='font-semibold'>Service A</h1>
+                <h1 className='font-semibold'>{service.name}</h1>
               </div>
 
-              <p className='text-sm text-justify text-gray-600'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex totam temporibus ducimus libero porro nobis, neque dolorum corporis accusamus quia repellendus ipsa. Sit aspernatur animi aut labore ut architecto consequuntur.</p>
+              <p className='text-sm text-justify text-gray-600'>
+                {service.description}
+              </p>
             </div>
           ))}
         </div>

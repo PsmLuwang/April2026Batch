@@ -31,19 +31,19 @@ const Footer = () => {
 
             <div className='flex gap-2'>
               <a href="#" className='text-4xl'>
-                <i class="fa-brands fa-square-facebook"></i>
+                <i className="fa-brands fa-square-facebook"></i>
               </a>
 
               <a href="#" className='text-4xl'>
-                <i class="fa-brands fa-instagram"></i>
+                <i className="fa-brands fa-instagram"></i>
               </a>
 
               <a href="#" className='text-4xl'>
-                <i class="fa-brands fa-twitter"></i>
+                <i className="fa-brands fa-twitter"></i>
               </a>
 
               <a href="#" className='text-4xl'>
-                <i class="fa-brands fa-youtube"></i>
+                <i className="fa-brands fa-youtube"></i>
               </a>
             </div>
           </div>
