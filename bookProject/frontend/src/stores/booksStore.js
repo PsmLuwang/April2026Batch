@@ -20,7 +20,25 @@ export const useBooksStore = create(set => ({
     } finally {
       set({ isLoading: false })
     }
-  }
+  },
+
+  getBookById: async (productId) => {
+    try {
+      set({ isLoading: true, error: null })
+
+      const response = await fetch(`https://api.freeapi.app/api/v1/public/books/${productId}`);
+      const data = await response.json(); // data.data
+  
+      set({ book: data.data });
+      
+    } catch (error) {
+      set({ error: error.message || "Error fetching Data" })
+    } finally {
+      set({ isLoading: false })
+    }
+  },
+
+
 
   
   

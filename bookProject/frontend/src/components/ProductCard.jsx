@@ -8,7 +8,7 @@ const ProductCard = ({ book }) => {
         className='h-40 w-30 object-cover'
         src={book?.volumeInfo?.imageLinks?.thumbnail}
         alt="" 
-      />
+      /> 
 
       <div>
         <h1 className='text-xl font-semibold'>{book.volumeInfo.title}</h1>
@@ -23,7 +23,7 @@ const ProductCard = ({ book }) => {
           {book.volumeInfo.description}
         </p>
 
-        <a href={book.volumeInfo.previewLink} className='bg-green-700 block w-20 text-center text-white py-1'>View</a>
+        <Link to={`/productsDetails/${book.id}`} className='bg-green-700 block w-20 text-center text-white py-1'>View</Link>
       </div>
     </div>
   )
