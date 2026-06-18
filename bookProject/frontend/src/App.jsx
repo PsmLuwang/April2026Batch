@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom'
 import HomePage from './pages/HomePage'
 import ProductsPage from './pages/ProductsPage'
 import ProductDetailsPage from './pages/ProductDetailsPage'
+import HooksPage from './pages/HooksPage'
 
 const App = () => {
   return (
@@ -12,6 +13,7 @@ const App = () => {
         <Route path='/' element={<HomePage />} />
         <Route path='/products' element={<ProductsPage />} />
         <Route path='/productsDetails/:productId' element={<ProductDetailsPage />} />
+        <Route path='/useNavigate' element={<HooksPage />} />
       </Routes>
 
     </section>
