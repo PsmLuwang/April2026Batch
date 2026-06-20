@@ -12,6 +12,7 @@ const NavBar = () => {
       <div className='max-sm:hidden flex items-center gap-4 text-sm font-semibold'>
         <Link to={"/"}>Home</Link>
         <Link to={"/products"}>Products</Link>
+        <Link to={"/people"}>People</Link>
       </div>
 
 
