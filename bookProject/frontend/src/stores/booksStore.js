@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import { axiosInstance } from '../utils/axios';
 
 export const useBooksStore = create(set => ({
   books: [],
@@ -10,10 +11,9 @@ export const useBooksStore = create(set => ({
     try {
       set({ isLoading: true, error: null })
 
-      const response = await fetch(`https://api.freeapi.app/api/v1/public/books?page=1&limit=10&inc=kind%2Cid%2Cetag%2CvolumeInfo&query=tech`);
-      const data = await response.json(); // data.data.data
+      const response = await axiosInstance.get(`/v1/public/books?page=1&limit=10&inc=kind%2Cid%2Cetag%2CvolumeInfo&query=tech`);
   
-      set({ books: data.data.data });
+      set({ books: response.data.data.data });
       
     } catch (error) {
       set({ error: error.message || "Error fetching Data" })
@@ -26,10 +26,9 @@ export const useBooksStore = create(set => ({
     try {
       set({ isLoading: true, error: null })
 
-      const response = await fetch(`https://api.freeapi.app/api/v1/public/books/${productId}`);
-      const data = await response.json(); // data.data
+      const response = await axiosInstance.get(`/v1/public/books/${productId}`);
   
-      set({ book: data.data });
+      set({ book: response.data.data });
       
     } catch (error) {
       set({ error: error.message || "Error fetching Data" })

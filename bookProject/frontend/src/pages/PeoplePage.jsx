@@ -2,43 +2,40 @@ import React, { useEffect, useState } from 'react'
 import NavBar from '../components/NavBar'
 import Footer from '../components/Footer'
 import { LoaderCircle } from 'lucide-react';
+import { useUsersStore } from '../stores/peopleStore';
 
 const PeoplePage = () => {
-  const [users, setUsers] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const { isLoading, error, users, getUsers } = useUsersStore();
   const [page, setPage] = useState(1);
   const [limit, setLimit] = useState(10);
 
   useEffect(() => {
-    const handleGetUsers = async () => {
-      setIsLoading(true);
-
-      const response = await fetch(`https://api.freeapi.app/api/v1/public/randomusers?page=${page}&limit=${limit}`);
-      const data = await response.json();
-      setUsers(prev => [...prev, ...data.data.data]);
-
-      setIsLoading(false);
-    }
-
-    handleGetUsers();
+    getUsers(page, limit);
   }, [page])
 
-  // const [count, setCount] = useState(0);
 
-  // useEffect(() => {
-  //   console.log("run");
+  // infinite scroll // update page
+  useEffect(() => {
+    const handleScroll = () => {
+      const { scrollTop, clientHeight, scrollHeight } = document.documentElement;
     
-  //   return (() => {
-  //     console.log("clean up function")
-  //   })
-  // })
+      if (scrollTop + clientHeight >= scrollHeight - 50 && !isLoading) {
+        setPage(prev => prev + 1);
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll);
+
+    return (() => {
+      window.removeEventListener('scroll', handleScroll);
+    })
+
+  }, [isLoading])
+
 
   return (
     <div>
       <NavBar />
-
-      {/* <button onClick={() => setCount(count+1)} className='bg-red-400'>Click</button> */}
-
 
       <section className='p-5 grid justify-center gap-3'>
 
@@ -60,16 +57,11 @@ const PeoplePage = () => {
 
       {isLoading && <LoaderCircle size={64} className='animate-spin mx-auto m-5' />}
 
-      {/* load more data */}
-      <button 
-        onClick={() => setPage(page+1)}
-        className='bg-blue-400 w-30 py-3 block mx-auto mb-10'
-      >
-        Load more
-      </button>
 
     </div>
   )
 }
 
 export default PeoplePage
+
+

@@ -5,12 +5,17 @@ import ProductsPage from './pages/ProductsPage'
 import ProductDetailsPage from './pages/ProductDetailsPage'
 import HooksPage from './pages/HooksPage'
 import PeoplePage from './pages/PeoplePage'
+import SignupPage from './pages/SignupPage'
+import SignupVerification from './pages/SignupVerification'
 
 const App = () => {
   return (
     <section className='text-gray-800'>
 
       <Routes>
+        <Route path='/signup' element={<SignupPage />} />
+        <Route path='/signup/verification' element={<SignupVerification />} />
+
         <Route path='/' element={<HomePage />} />
         <Route path='/products' element={<ProductsPage />} />
         <Route path='/productsDetails/:productId' element={<ProductDetailsPage />} />
