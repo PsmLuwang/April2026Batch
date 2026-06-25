@@ -7,6 +7,7 @@ import HooksPage from './pages/HooksPage'
 import PeoplePage from './pages/PeoplePage'
 import SignupPage from './pages/SignupPage'
 import SignupVerification from './pages/SignupVerification'
+import OtpPage from './pages/OtpPage'
 
 const App = () => {
   return (
@@ -14,7 +15,7 @@ const App = () => {
 
       <Routes>
         <Route path='/signup' element={<SignupPage />} />
-        <Route path='/signup/verification' element={<SignupVerification />} />
+        <Route path='/signup/verification' element={<OtpPage />} />
 
         <Route path='/' element={<HomePage />} />
         <Route path='/products' element={<ProductsPage />} />

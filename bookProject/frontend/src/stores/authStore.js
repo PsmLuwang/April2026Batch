@@ -28,5 +28,26 @@ export const useAuthStore = create((set, get) => ({
       set({ isLoading: false })
     }
   },
+
+
+  verification: async (otp) => {
+    try {
+      set({ isLoading: true, error: null })
+
+      const response = await axios.post(
+        `////`, 
+        { email: get().user.email, otp: otp}
+      );
+  
+      set({ user: response.data.user });
+      
+      return response.data.success;
+    } catch (error) {
+      set({ error: error.message || "Error Signup" })
+      
+    } finally {
+      set({ isLoading: false })
+    }
+  },
   
 }))
