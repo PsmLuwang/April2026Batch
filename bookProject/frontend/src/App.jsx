@@ -7,15 +7,18 @@ import HooksPage from './pages/HooksPage'
 import PeoplePage from './pages/PeoplePage'
 import SignupPage from './pages/SignupPage'
 import SignupVerification from './pages/SignupVerification'
-import OtpPage from './pages/OtpPage'
+import { Toaster } from 'react-hot-toast'
+
+
 
 const App = () => {
   return (
     <section className='text-gray-800'>
-
+      <Toaster />
+      
       <Routes>
         <Route path='/signup' element={<SignupPage />} />
-        <Route path='/signup/verification' element={<OtpPage />} />
+        <Route path='/signup/verification' element={<SignupVerification />} />
 
         <Route path='/' element={<HomePage />} />
         <Route path='/products' element={<ProductsPage />} />

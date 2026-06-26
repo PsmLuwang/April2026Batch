@@ -1,6 +1,7 @@
 import { create } from 'zustand';
 import axios from 'axios';
 import { axiosInstance } from '../utils/axios';
+import toast from 'react-hot-toast';
 
 
 export const useAuthStore = create((set, get) => ({
@@ -17,13 +18,14 @@ export const useAuthStore = create((set, get) => ({
         `https://free-api-six.vercel.app/api/auth/signup`, 
         signupData
       );
-  
+      
       set({ user: response.data.user });
       
+      toast.success("OTP sent");
       return response.data.success;
     } catch (error) {
-      set({ error: error.message || "Error Signup" })
-      
+      set({ error: error.response.data.message || error.message || "Error Signup" })
+      toast.error(error?.response?.data.message || "Error Signup")
     } finally {
       set({ isLoading: false })
     }

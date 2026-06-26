@@ -1,24 +1,13 @@
-import React, { useEffect, useRef, useState } from 'react'
-
+import { toast } from 'react-hot-toast'
 const HooksPage = () => {
-  const element = useRef(null);
 
-  const clickfun = () => {
-    element.current.innerText = "test";
+  const handleClick = () => {
+    toast.success("Hello World")
   }
 
-  
   return (
     <div>
-      
-      <h1 ref={element} className='text-center text-5xl'></h1>
-
-      <button 
-        onClick={clickfun}
-        className='bg-blue-400 p-3 mx-auto block w-30'
-      >
-        Add
-      </button>
+      <button onClick={handleClick} className="text-white bg-black p-3 px-10 mx-auto block w-30 mt-60">Click</button>
     </div>
   )
 }
