@@ -1,5 +1,5 @@
-import React from 'react'
-import { Route, Routes } from 'react-router-dom'
+import React, { useEffect } from 'react'
+import { Route, Routes, Navigate } from 'react-router-dom'
 import HomePage from './pages/HomePage'
 import ProductsPage from './pages/ProductsPage'
 import ProductDetailsPage from './pages/ProductDetailsPage'
@@ -7,7 +7,18 @@ import PeoplePage from './pages/PeoplePage'
 import SignupPage from './pages/SignupPage'
 import SignupVerification from './pages/SignupVerification'
 import { Toaster } from 'react-hot-toast'
+import { useAuthStore } from './stores/authStore'
 
+
+const ProtectedRoutes = ({ children }) => {
+  const { isAuthenticated } = useAuthStore();
+
+  if (!isAuthenticated) {
+    return <Navigate to={"/signup"} replace />
+  }
+
+  return children;
+}
 
 
 const App = () => {
@@ -22,7 +33,13 @@ const App = () => {
         <Route path='/' element={<HomePage />} />
         <Route path='/products' element={<ProductsPage />} />
         <Route path='/productsDetails/:productId' element={<ProductDetailsPage />} />
-        <Route path='/people' element={<PeoplePage />} />
+        <Route path='/people' 
+          element={
+            <ProtectedRoutes>
+              <PeoplePage />
+            </ProtectedRoutes>
+          } 
+        />
       </Routes>
 
     </section>
