@@ -1,5 +1,6 @@
 import express from "express";
 import calcRoutes from "./routes/calc.route.js";
+import authRoutes from "./routes/auth.route.js";
 
 const app = express();
 app.use(express.json());
@@ -7,6 +8,7 @@ app.use(express.json());
 
 // ROUTES
 app.use("/api/calc", calcRoutes);
+app.use("/api/auth", authRoutes);
 
 
 // Server listen
