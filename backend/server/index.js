@@ -1,4 +1,5 @@
 import express from "express";
+import connectDB from "./utils/mongodbConnect.js"
 import calcRoutes from "./routes/calc.route.js";
 import authRoutes from "./routes/auth.route.js";
 
@@ -10,6 +11,9 @@ app.use(express.json());
 app.use("/api/calc", calcRoutes);
 app.use("/api/auth", authRoutes);
 
+
+// DB connection
+connectDB();
 
 // Server listen
 const PORT = 5000;

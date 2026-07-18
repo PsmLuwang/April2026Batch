@@ -1,4 +1,6 @@
-const signup = (req, res) => {
+import { UserModel } from "../models/users.model.js";
+
+const signup = async (req, res) => {
   
   const { name, email, password } = req.body;
 
@@ -10,20 +12,38 @@ const signup = (req, res) => {
   }
 
   // logic
+  const userInfo = {
+    name,
+    email,
+    password
+  }
+
+  const newUser = await UserModel.create(userInfo);
+  
 
   res.status(201).json({
     success: true,
     message: "User created",
-    data: {
-      userID: "ABC123",
-      name,
-      email
-    }
+    data: newUser
   })
 
 }
 
 
+
+const getAllUsers = async (req, res) => {
+  
+  const allUsers = await UserModel.find({});
+
+  res.status(200).json({
+    success: true,
+    message: "All users data",
+    data: allUsers
+  })
+}
+
+
 export {
-  signup
+  signup,
+  getAllUsers
 }
