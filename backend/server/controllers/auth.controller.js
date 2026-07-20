@@ -43,7 +43,50 @@ const getAllUsers = async (req, res) => {
 }
 
 
+
+const signupVerification = async (req, res) => {
+  try {
+    const { email } = req.params;
+
+    // const user = await UserModel.findOne({ email });
+    // if (!user) {
+    //   return res.status(404).json({
+    //     success: false,
+    //     message: "User not found"
+    //   })
+    // }
+
+    // // update user details
+    // user.isVerified = true;
+    // await user.save();
+
+    const updatedUser = await UserModel.findOneAndDelete(
+      {email}, 
+      {isVerified: true}, 
+      {new: true}
+    )
+    if (!updatedUser) {
+      return res.status(404).json({
+        success: false,
+        message: "User not found"
+      })
+    }
+
+    res.status(200).json({
+      success: true,
+      updatedUser
+    })
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "Server Error"
+    })
+  }
+}
+
+
 export {
   signup,
-  getAllUsers
+  getAllUsers,
+  signupVerification
 }
