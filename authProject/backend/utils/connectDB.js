@@ -8,4 +8,4 @@ export default async () => {
     console.log("Error connection to MongoDB: ", error.message);
     process.exit(1); // 1 is failure, 0 status code is success
   }
-}
+};
